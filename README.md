@@ -5,33 +5,23 @@ Serviço responsavel pela autenticação/registro de usuário
 
 ## Rodando localmente
 
-Renomear .env.sample para .env
+Alterar o arquivo de configuração database.yml
+
+Renomear .env_sample para .env
 
 ```bash
-  mv .env.sample .env
-```
-
-Build o container
-
-```bash
-  docker compose build
+  mv .env_sample .env
 ```
 
 Execute as migrações
 
 ```bash
-  docker compose run web rake db:create
-  docker compose run web rake db:migrate
+  rails db:create
+  rails db:migrate
 ```
 
-Execute o container
+Execute a aplicação
 
 ```bash
-  docker compose up
-```
-
-Execute os teste unitários
-
-```bash
-  docker compose run web bash -c "RAILS_ENV=test bundle exec rspec"
+  rails s --port=3001
 ```
